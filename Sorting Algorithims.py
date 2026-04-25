@@ -43,3 +43,49 @@ for i in range(1,len(N)):
 print(N)
 
 
+#Merge sort
+#----------
+N = [999,10,25,5,15,2,6,8,9,11]
+def mergeSort(N,firstI,lastI):
+    if firstI < lastI:
+        mid = (firstI + lastI) // 2 
+        mergeSort(N,firstI,mid)
+        mergeSort(N,mid + 1,lastI)
+        merge(N,firstI,mid,lastI)
+        
+    
+def merge(N,firstI,mid,lastI):
+    result = []
+    i1 = firstI
+    i2 = mid + 1
+    
+    while i1 <= mid and i2 <=lastI:
+        if N[i1] < N[i2]:
+            result.append(N[i1])
+            i1 = i1 + 1
+        else:
+            result.append(N[i2])
+            i2 = i2 + 1
+
+    while i1 <= mid:
+        result.append(N[i1])
+        i1 = i1 + 1 
+    while i2 <= lastI:
+        result.append(N[i2])
+        i2 = i2 + 1
+    
+    for i in range(len(result)):
+        N[firstI+i] = result[i]
+
+mergeSort(N,0,len(N) -1)
+
+print(N)
+
+
+
+
+
+
+
+
+
