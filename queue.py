@@ -1,6 +1,6 @@
 
 
-class Queue():
+class Queue(): #First in First Out 
     def __init__(self,size):
         self.size = size
         self.list = []
